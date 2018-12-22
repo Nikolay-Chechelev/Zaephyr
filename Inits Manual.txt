@@ -1,0 +1,90 @@
+Сигнатура - неизменный набор байт, указывающий на начало пакета.
+Тело - набор информативных байт.
+Конец - неизменный набор байт, указывающий на конец пакета.
+Команда - пакет байт (сигнатура, тело, конец), отправляемый из программы в устройство.
+Ответ - пакет байт (сигнатура, тело, конец), отправляемый из устройства в программу.
+Тип данных - схематичное описание структуры пакета (сигнатура, конец)
+
+1. Каждое устройство имеет список команд и ответов.
+2. Каждая команда имеет свою сигнатуру и конец.
+3. Каждый ответ иммет свою сигнатуру и конец.
+5. Сигнатура и конец составляют тип данных.
+6. Тип данных не делится на команды и ответы.
+4. Каждой команде присваивается 
+
+ВСЕ ХУЙНЯ!!!
+
+Делаем так.
+
+Device{
+	name='MyDevice'
+	channels=4}
+
+Datatypes{
+	name1=AnswerFrame{
+		signature=[0xff, 0xff, 0xff]
+		end=0xC0}
+	name2=CommandFrame{
+		signature=''
+		end=''}}
+
+Bodies{
+	name1=ch_data{
+		type=answ
+		mask1=0xff
+		mask2=0xff
+		mask3=0xff
+		shift=0}
+	name2=ping{
+		type=cmnd
+		byte1='v'
+		shift=0}
+	name2=start{
+		type=cmnd
+		byte1='b'
+		shift=0}
+	name2=stop{
+		type=cmnd
+		byte1='s'
+		shift=0}}
+
+Channels{
+	name1=Channel1{
+		type=ch_data
+		sequence = [1, 2, 3]
+		units='uV'}
+	name2=Channel1{
+		type=ch_data
+		sequence = [1, 2, 3]
+		units='uV'}
+	name3=Channel1{
+		type=ch_data
+		sequence = [1, 2, 3]
+		units='uV'}
+	name4=Channel1{
+		type=ch_data
+		sequence = [1, 2, 3]
+		units='uV'}}
+
+Commands:
+	Ping={CommandFrame.signature, ping.byte1, CommandFrame.end}
+	Start={CommandFrame.signature, start.byte1, CommandFrame.end}
+	Stop={CommandFrame.signature, stop.byte1, CommandFrame.end}
+Answers:
+	Ping=''
+	Start=''
+	Stop=''
+FlowData:
+	Data={AnswerFrame.signature, Channel1.sequence, Channel2.sequence, Channel3.sequence, Channel4.sequence, AnswerFrame.end}
+	
+
+
+
+
+
+
+Ключевые слова.
+Device, Datatypes, Bodies, Channels, name, namex, channels, signature, end, type, maskx, shift, bytex, sequence, units
+где x - порядковый номер последовательно
+
+
