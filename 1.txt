@@ -5,9 +5,13 @@
         },
 
     'Datatypes':{
-        'AnswerFrame':{
-            'signature':[0xff, 0xff, 0xff],
+        'FlowFrame':{
+            'signature':0xA0,
             'end':0xC0
+            },
+        'AnswerFrame':{
+            'signature':'',
+            'end':''
             },
         'CommandFrame':{
             'signature':'',
@@ -95,11 +99,11 @@
         'Stop':''
         },
     'Dataflow':{
-        'AnswerFrame':'signature',
+        'FlowFrame':'signature',
         'Channel1':'sequence',
         'Channel2':'sequence',
         'Channel3':'sequence',
         'Channel4':'sequence',
-        'AnswerFrame':'end'
+        'FlowFrame':'end'
         }
 }

@@ -5,7 +5,9 @@ Channels = {}
 Commands = {}
 Answers = {}
 Dataflow = {}
+
 CommandList = {}
+AnswerList = {}
 
 f = open('1.txt', 'r')
 script = f.read()
@@ -43,14 +45,20 @@ for i in Commands.keys():
     Shift = Bodies.get(Commands.get(i)).get('shift')
     Signature = Datatypes.get(Bodies.get(Commands.get(i)).get('type')).get('signature')
     Body = Bodies.get(Commands.get(i)).get('command')
+    End = Datatypes.get(Bodies.get(Commands.get(i)).get('type')).get('end')
     if Shift >= 0:
         Body = chr(ord(Body) << abs(Shift))
     else:
         Body = chr(ord(Body) >> abs(Shift))
-    End = Datatypes.get(Bodies.get(Commands.get(i)).get('type')).get('end')
     cmd = Signature + Body + End
     CommandList[i] = cmd
 
+for i in Answers.keys():
+    Signature = Datatypes.get(Bodies.get(Commands.get(i)).get('type')).get('signature')
+    Body = Bodies.get(Commands.get(i)).get('command')
+    End = Datatypes.get(Bodies.get(Commands.get(i)).get('type')).get('end')
+
+    answ = Signature + Body + End
 
 
 print CommandList
