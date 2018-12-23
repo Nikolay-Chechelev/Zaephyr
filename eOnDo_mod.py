@@ -128,11 +128,11 @@ e = eeOnDo()
 print e.connect()
 print e.start_Flow()
 p = ee_Plot()
-thread.start_new(p.draw, (20,))
 while 1:
     data = e.get_data()
     p.load_array(data)
-    time.sleep(0.01)
+    p.draw(20)
+    #time.sleep(0.01)
 
 
 
