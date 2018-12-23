@@ -26,17 +26,17 @@
             },
         'ping':{
             'type':'CommandFrame',
-            'byte1':'v',
+            'command':'v',
             'shift':0
             },
         'start':{
             'type':'CommandFrame',
-            'byte1':'b',
+            'command':'b',
             'shift':0
             },
         'stop':{
             'type':'CommandFrame',
-            'byte1':'s',
+            'command':'s',
             'shift':0
             }
         },

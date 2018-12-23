@@ -5,7 +5,6 @@ Channels = {}
 Commands = {}
 Answers = {}
 Dataflow = {}
-
 CommandList = {}
 
 f = open('1.txt', 'r')
@@ -40,5 +39,18 @@ if 'Dataflow' in script.keys():
 
 
 
+for i in Commands.keys():
+    Shift = Bodies.get(Commands.get(i)).get('shift')
+    Signature = Datatypes.get(Bodies.get(Commands.get(i)).get('type')).get('signature')
+    Body = Bodies.get(Commands.get(i)).get('command')
+    if Shift >= 0:
+        Body = chr(ord(Body) << abs(Shift))
+    else:
+        Body = chr(ord(Body) >> abs(Shift))
+    End = Datatypes.get(Bodies.get(Commands.get(i)).get('type')).get('end')
+    cmd = Signature + Body + End
+    CommandList[i] = cmd
 
-print Dataflow
+
+
+print CommandList
