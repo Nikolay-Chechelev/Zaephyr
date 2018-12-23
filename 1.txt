@@ -94,7 +94,7 @@
         'Start':'',
         'Stop':''
         },
-    'DataFlow':{
+    'Dataflow':{
         'AnswerFrame':'signature',
         'Channel1':'sequence',
         'Channel2':'sequence',
