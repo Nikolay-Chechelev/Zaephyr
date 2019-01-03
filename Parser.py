@@ -8,6 +8,7 @@ Dataflow = {}
 
 CommandList = {}
 AnswerList = {}
+FlowMask = {}
 
 f = open('1.txt', 'r')
 script = f.read()
@@ -54,11 +55,16 @@ for i in Commands.keys():
     CommandList[i] = cmd
 
 for i in Answers.keys():
-    Signature = Datatypes.get(Bodies.get(Commands.get(i)).get('type')).get('signature')
-    Body = Bodies.get(Commands.get(i)).get('command')
-    End = Datatypes.get(Bodies.get(Commands.get(i)).get('type')).get('end')
-
+    Signature = Datatypes.get(Bodies.get(Answers.get(i)).get('type')).get('signature')
+    Body = Bodies.get(Answers.get(i)).get('command')
+    End = Datatypes.get(Bodies.get(Answers.get(i)).get('type')).get('end')
     answ = Signature + Body + End
+    AnswerList[i] = answ
+
+for i in Dataflow.keys():
+    Signature = Dataflow.get
+
 
 
 print CommandList
+print AnswerList

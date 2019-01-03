@@ -21,7 +21,7 @@
 
     'Bodies':{
         'ch_data':{
-            'type':'AnswerFrame',
+            'type':'FlowFrame',
             'bytes':3,
             'mask1':0xff,
             'mask2':0xff,
@@ -41,6 +41,21 @@
         'stop':{
             'type':'CommandFrame',
             'command':'s',
+            'shift':0
+            },
+        'aping':{
+            'type':'AnswerFrame',
+            'command':'eeOnDo',
+            'shift':0
+            },
+        'astart':{
+            'type':'AnswerFrame',
+            'command':'',
+            'shift':0
+            },
+        'astop':{
+            'type':'AnswerFrame',
+            'command':'',
             'shift':0
             }
         },
@@ -94,9 +109,9 @@
         'Stop':'stop'
         },
     'Answers':{
-        'Ping':'eeOnDo',
-        'Start':'',
-        'Stop':''
+        'Ping':'aping',
+        'Start':'astart',
+        'Stop':'astop'
         },
     'Dataflow':{
         'FlowFrame':'signature',
@@ -104,6 +119,10 @@
         'Channel2':'sequence',
         'Channel3':'sequence',
         'Channel4':'sequence',
+        'Channel5':'sequence',
+        'Channel6':'sequence',
+        'Channel7':'sequence',
+        'Channel8':'sequence',
         'FlowFrame':'end'
         }
 }
